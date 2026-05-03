@@ -1,0 +1,19 @@
+[package]
+name = "kayolar-hash-v3"
+version = "3.0.0"
+edition = "2021"
+authors = ["Alexandre Jean"]
+description = "KAYOLAR-V3 PURE: a 344-bit ARX cryptographic hash function"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["hash", "cryptography", "arx"]
+categories = ["cryptography"]
+
+[dependencies]
+rayon = "1.10"
+thiserror = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
