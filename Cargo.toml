@@ -1,0 +1,21 @@
+[package]
+name = "kayolar-hash-v4"
+version = "4.0.0"
+edition = "2021"
+authors = ["Alexandre Jean"]
+description = "KAYOLAR V4 SPONGE: experimental 344-bit sponge hash on a 1024-bit ARX permutation"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["hash", "cryptography", "arx", "sponge"]
+categories = ["cryptography"]
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+[dev-dependencies]
+sha2 = "0.10"
