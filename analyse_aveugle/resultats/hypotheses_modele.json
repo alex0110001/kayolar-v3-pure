@@ -1,0 +1,16 @@
+{
+  "gel": "AAAA-MM-JJ hh:mm (heure du gel)",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "titre": "phrase courte",
+      "declencheur": "règle exacte, calculable pas à pas sans le futur (colonnes utilisées, seuils)",
+      "prediction": "ce qui doit se produire",
+      "fenetre": "de combien de pas à combien de pas après le déclencheur",
+      "mesure": "comment on mesure le résultat, pas à pas",
+      "critere_de_reussite": "valeur chiffrée qui dit que la prédiction est vérifiée",
+      "resultat_dans_A": {"occurrences": 0, "segments": 0, "reussites": 0, "reference_generale": "ce qui arrive en général à pas comparables"},
+      "script": "scripts/nom_du_script.py"
+    }
+  ]
+}

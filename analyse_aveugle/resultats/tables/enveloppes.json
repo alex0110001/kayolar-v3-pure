@@ -1,0 +1,205 @@
+{
+ "replication_P_hausse_par_z": -0.21801125703564733,
+ "P_hausse_min_max": {
+  "min": 0.4051948051948052,
+  "max": 0.7510373443983402
+ },
+ "sorties_enveloppe": [
+  {
+   "capteur": "alpha",
+   "sens": "haut",
+   "h": 3,
+   "n": 1842,
+   "P_retour": 0.8197611292073833,
+   "ref_deja_dehors": 0.7938234014789038,
+   "P_hausse_fen3": 0.4717514124293785,
+   "segments": 50
+  },
+  {
+   "capteur": "alpha",
+   "sens": "bas",
+   "h": 3,
+   "n": 1899,
+   "P_retour": 0.8067403896787783,
+   "ref_deja_dehors": 0.8030176026823135,
+   "P_hausse_fen3": 0.5222826086956521,
+   "segments": 50
+  },
+  {
+   "capteur": "epsilon",
+   "sens": "haut",
+   "h": 6,
+   "n": 1279,
+   "P_retour": 0.8318999218139171,
+   "ref_deja_dehors": 0.7835213032581454,
+   "P_hausse_fen3": 0.4669421487603306,
+   "segments": 50
+  },
+  {
+   "capteur": "epsilon",
+   "sens": "bas",
+   "h": 6,
+   "n": 1430,
+   "P_retour": 0.8538461538461538,
+   "ref_deja_dehors": 0.8027149321266969,
+   "P_hausse_fen3": 0.49853801169590645,
+   "segments": 50
+  },
+  {
+   "capteur": "gamma",
+   "sens": "haut",
+   "h": 12,
+   "n": 888,
+   "P_retour": 0.8738738738738738,
+   "ref_deja_dehors": 0.7946474523932063,
+   "P_hausse_fen3": 0.49939686369119424,
+   "segments": 50
+  },
+  {
+   "capteur": "gamma",
+   "sens": "bas",
+   "h": 12,
+   "n": 1024,
+   "P_retour": 0.890625,
+   "ref_deja_dehors": 0.8343251606760295,
+   "P_hausse_fen3": 0.4707724425887265,
+   "segments": 50
+  },
+  {
+   "capteur": "beta",
+   "sens": "haut",
+   "h": 18,
+   "n": 791,
+   "P_retour": 0.9216182048040455,
+   "ref_deja_dehors": 0.7862503025901719,
+   "P_hausse_fen3": 0.4663923182441701,
+   "segments": 50
+  },
+  {
+   "capteur": "beta",
+   "sens": "bas",
+   "h": 18,
+   "n": 775,
+   "P_retour": 0.9045161290322581,
+   "ref_deja_dehors": 0.8140167838512135,
+   "P_hausse_fen3": 0.4889807162534435,
+   "segments": 50
+  },
+  {
+   "capteur": "delta",
+   "sens": "haut",
+   "h": 47,
+   "n": 481,
+   "P_retour": 0.9438669438669439,
+   "ref_deja_dehors": 0.8363101491910065,
+   "P_hausse_fen3": 0.5032397408207343,
+   "segments": 45
+  },
+  {
+   "capteur": "delta",
+   "sens": "bas",
+   "h": 47,
+   "n": 431,
+   "P_retour": 0.9350348027842227,
+   "ref_deja_dehors": 0.8105954055321144,
+   "P_hausse_fen3": 0.4744897959183674,
+   "segments": 46
+  }
+ ],
+ "compression": [
+  {
+   "capteur": "alpha",
+   "etat": "compression<=5%",
+   "n": 6056,
+   "segments": 50,
+   "ampl_futur_med": 1.0084460188050972,
+   "ref_meme_heure": 1.0247155688923821,
+   "A1": 1.0047714488140367,
+   "A2": 1.0164110881250843
+  },
+  {
+   "capteur": "alpha",
+   "etat": "expansion>=95%",
+   "n": 3203,
+   "segments": 50,
+   "ampl_futur_med": 1.2693228094311388,
+   "ref_meme_heure": 1.1031722984629702,
+   "A1": 1.2779577196864151,
+   "A2": 1.2529221393631218
+  },
+  {
+   "capteur": "epsilon",
+   "etat": "compression<=5%",
+   "n": 6751,
+   "segments": 50,
+   "ampl_futur_med": 1.0721127741992562,
+   "ref_meme_heure": 1.036520586044586,
+   "A1": 1.072075639624393,
+   "A2": 1.0732311366706138
+  },
+  {
+   "capteur": "epsilon",
+   "etat": "expansion>=95%",
+   "n": 3835,
+   "segments": 50,
+   "ampl_futur_med": 1.1338696908772388,
+   "ref_meme_heure": 1.073331363489467,
+   "A1": 1.1627537458116355,
+   "A2": 1.094160282543078
+  },
+  {
+   "capteur": "gamma",
+   "etat": "compression<=5%",
+   "n": 6311,
+   "segments": 50,
+   "ampl_futur_med": 1.1854700120829558,
+   "ref_meme_heure": 1.0252046525377538,
+   "A1": 1.2117256944041592,
+   "A2": 1.1343407484109864
+  },
+  {
+   "capteur": "gamma",
+   "etat": "expansion>=95%",
+   "n": 5139,
+   "segments": 50,
+   "ampl_futur_med": 0.9410546836422279,
+   "ref_meme_heure": 0.9749281958948877,
+   "A1": 0.949278677985482,
+   "A2": 0.922033992724811
+  }
+ ],
+ "alignement": [
+  {
+   "alignement": "haussier",
+   "n": 10138,
+   "part_pas": 0.15760190419518,
+   "P_hausse_36": 0.4860919313474058,
+   "var_moy_vol60": 0.22953466452608903,
+   "A1": 0.4612422568223673,
+   "A2": 0.5217286914765906
+  },
+  {
+   "alignement": "baissier",
+   "n": 10174,
+   "part_pas": 0.1589259149062779,
+   "P_hausse_36": 0.5129742480833497,
+   "var_moy_vol60": -0.2000453721554149,
+   "A1": 0.49415167903408375,
+   "A2": 0.5802968960863698
+  },
+  {
+   "alignement": "mêlé",
+   "n": 43608,
+   "part_pas": 0.6834721808985421,
+   "P_hausse_36": 0.48814437717849934,
+   "var_moy_vol60": 0.022378478895272304,
+   "A1": 0.4709908735332464,
+   "A2": 0.5288521039603961
+  }
+ ],
+ "alignement_duree": {
+  "n": 534,
+  "mediane": 31.0,
+  "p90": 87.0
+ }
+}

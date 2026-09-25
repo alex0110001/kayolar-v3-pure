@@ -1,0 +1,16 @@
+id;titre;n_A;seg_A;A1;A2;ref_A1;ref_A2;ok_A1;ok_A2;critere
+H01;Horloge de 60 pas : l'activité saute au pas ≡ 0 (mod 60);1032;50;0.9069;0.9071;0.4151;0.4156;True;True;taux ≥ 0.75
+H02;Horloge de 60 pas : l'amplitude saute au pas ≡ 0 (mod 60);1032;50;0.8361;0.7949;0.4651;0.4638;True;True;taux ≥ 0.70
+H03;Demi-horloge : l'activité saute au pas ≡ 30 (mod 60);1122;50;0.7854;0.7316;0.4151;0.4156;True;True;taux ≥ 0.65
+H04;Les chocs d'amplitude s'auto-excitent;294;48;0.4085;0.358;0.049;0.068;True;True;taux ≥ 0.25
+H05;Un pic d'activité annonce un nouvel extrême;963;50;0.388;0.5134;0.1645;0.2281;True;True;taux ≥ 0.30
+H06;Sept pas dans le même sens ancrent le prix du même côté d'alpha;835;50;0.7942;0.8185;0.662;0.7025;True;True;écart ≥ +0.05 (5 points)
+H07;Une bascule fraîche est fragile;19280;50;0.2911;0.2755;0.2419;0.2391;True;True;écart ≥ +0.02 (2 points)
+H08;Cascade : le capteur plus lent suit la bascule du plus rapide;7418;50;0.839;0.8255;0.8156;0.7869;True;True;écart ≥ +0.01 et z ≥ 2
+H09;Après la pause, l'ouverture décroche;40;40;0.8929;0.5833;0.0147;0.0002;True;True;taux ≥ 0.50
+H10;Cycle de 5 segments;50;50;1.0;1.0;;;True;True;taux ≥ 0.90
+H11;Heure de pointe : les pas 780 à 839;50;50;0.9714;1.0;0.1698;0.1667;True;True;taux ≥ 0.70
+H12;Moins d'extrêmes qu'un chemin aux pas mélangés;50;50;0.8857;0.9333;0.5;0.5;True;True;taux ≥ 0.75
+H13;La volatilité d'un segment annonce celle du suivant;49;49;0.7647;1.0;0.4599;0.4945;True;True;taux ≥ 0.70
+H14;L'activité précède l'amplitude (Granger à sens unique);50;50;1.0;1.0;0.0286;0.0;True;True;première part ≥ 0.80 et seconde part ≤ 0.30
+H15;Contrôle : les familles qui appellent ne font pas basculer le capteur appelé;9632;50;0.52;0.5019;0.5128;0.503;True;True;|écart| ≤ 0.03 (hypothèse de contrôle négatif)

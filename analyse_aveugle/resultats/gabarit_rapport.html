@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rapport - systeme inconnu</title>
+<!--
+  GABARIT DU RAPPORT. Copier en rapport.html et remplir.
+  - Autonome : graphiques en SVG inline ou PNG en base64 (data:image/png;base64,...), aucun lien externe.
+  - Un graphique par connexion au minimum, titre en francais, axes nommes.
+  - Chaque chiffre vient d'un script de resultats/scripts/.
+-->
+<style>
+:root{color-scheme:light;--surface:#fcfcfb;--panel:#f4f3f0;--line:#e3e2dd;--text:#0b0b0b;--text2:#52514e;--acc:#2a78d6}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--surface:#1a1a19;--panel:#232321;--line:#383835;--text:#fff;--text2:#c3c2b7;--acc:#3987e5}}
+*{box-sizing:border-box}body{margin:0;background:var(--surface);color:var(--text);font:15px/1.6 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 60px}h1{font-size:24px}h2{font-size:19px;margin-top:36px;border-top:1px solid var(--line);padding-top:14px}
+.carte{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:12px 0}
+.kv{color:var(--text2);font-size:13px}table{border-collapse:collapse;font-size:13px}th,td{border-bottom:1px solid var(--line);padding:4px 8px;text-align:left}
+figure{margin:12px 0}figure img,figure svg{width:100%;height:auto}figcaption{font-size:12px;color:var(--text2)}
+</style></head><body><main>
+<h1>Rapport - systeme inconnu, segments S001-S050</h1>
+<p class="kv">Date du gel des hypotheses : ... | Pistes explorees au total : ... | Scripts : resultats/scripts/</p>
+
+<h2>1. En une page</h2>
+<div class="carte"><!-- Les 3 a 7 connexions les plus fortes, une phrase chacune, avec leur effectif. --></div>
+
+<h2>2. Ce que j'ai vu en regardant</h2>
+<!-- Les observations qui ont tout declenche, avec graphiques. -->
+
+<h2>3. Les connexions</h2>
+<!-- Une carte par connexion :
+<div class="carte">
+  <h3>C1 - titre</h3>
+  <p>Ce que c'est, en clair.</p>
+  <p class="kv">Occurrences : n = ... sur ... segments | Reference generale : ... | Exemples : S012 pas 431, S027 pas 88...</p>
+  <figure>graphique</figure>
+  <p>Ce qui se passe ensuite.</p>
+</div> -->
+
+<h2>4. La carte des liaisons</h2>
+<!-- Graphe : quelles cellules (symboles, familles, capteurs, runs, extremes) sont liees a quelles autres, avec quel delai. -->
+
+<h2>5. Hypotheses gelees</h2>
+<!-- Tableau recapitulatif de hypotheses_gelees.json. -->
+
+<h2>6. Ce qui n'a rien donne</h2>
+<!-- Les pistes explorees sans resultat, en une ligne chacune. -->
+</main></body></html>

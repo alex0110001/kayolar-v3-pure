@@ -1,0 +1,135 @@
+{
+ "pics_spectre_activite": [
+  {
+   "periode": 60,
+   "puissance_sur_fond": 1.0
+  },
+  {
+   "periode": 30,
+   "puissance_sur_fond": 3.119084909444585
+  },
+  {
+   "periode": 20,
+   "puissance_sur_fond": 1.0
+  },
+  {
+   "periode": 15,
+   "puissance_sur_fond": 4.609897615009355
+  },
+  {
+   "periode": 12,
+   "puissance_sur_fond": 0.9272754839777679
+  },
+  {
+   "periode": 10,
+   "puissance_sur_fond": 2.8897583420743356
+  },
+  {
+   "periode": 5,
+   "puissance_sur_fond": 10.56309283044241
+  }
+ ],
+ "periodes_plus_fortes": [
+  {
+   "periode": 5.0,
+   "rapport": 10.56309283044241
+  },
+  {
+   "periode": 2.5,
+   "rapport": 9.249845964357862
+  },
+  {
+   "periode": 15.0,
+   "rapport": 4.609897615009355
+  },
+  {
+   "periode": 2.9999999999999996,
+   "rapport": 3.909440277052649
+  },
+  {
+   "periode": 30.0,
+   "rapport": 3.119084909444585
+  },
+  {
+   "periode": 5.02092050209205,
+   "rapport": 3.092517210892166
+  },
+  {
+   "periode": 4.979253112033195,
+   "rapport": 3.066517962406191
+  },
+  {
+   "periode": 3.75,
+   "rapport": 3.017737366192593
+  }
+ ],
+ "persistance_entre_segments": {
+  "activite_rho": 0.30174837687234807,
+  "volatilite_rho": 0.8375510204081632,
+  "n_paires": 49
+ },
+ "cycle5": [
+  {
+   "cycle5": 0,
+   "n_pas": 1378.0,
+   "act": 56.25,
+   "vol": 0.00658
+  },
+  {
+   "cycle5": 1,
+   "n_pas": 1378.0,
+   "act": 57.0,
+   "vol": 0.0082
+  },
+  {
+   "cycle5": 2,
+   "n_pas": 1378.0,
+   "act": 62.0,
+   "vol": 0.00873
+  },
+  {
+   "cycle5": 3,
+   "n_pas": 1378.0,
+   "act": 62.25,
+   "vol": 0.00799
+  },
+  {
+   "cycle5": 4,
+   "n_pas": 1258.0,
+   "act": 59.25,
+   "vol": 0.00706
+  }
+ ],
+ "topologie_persistance": [
+  {
+   "seuil_en_sigma": 1,
+   "observe": 14833,
+   "surrogat": 14537.849999999999,
+   "rapport": 1.0203021767317726
+  },
+  {
+   "seuil_en_sigma": 2,
+   "observe": 7683,
+   "surrogat": 7833.400000000003,
+   "rapport": 0.9808001634028642
+  },
+  {
+   "seuil_en_sigma": 4,
+   "observe": 3294,
+   "surrogat": 3390.5000000000005,
+   "rapport": 0.9715381212210588
+  },
+  {
+   "seuil_en_sigma": 8,
+   "observe": 1181,
+   "surrogat": 1206.7499999999998,
+   "rapport": 0.9786616946343486
+  },
+  {
+   "seuil_en_sigma": 16,
+   "observe": 348,
+   "surrogat": 351.49999999999994,
+   "rapport": 0.9900426742532007
+  }
+ ]
+}

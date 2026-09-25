@@ -1,0 +1,548 @@
+{
+ "gel": "2026-09-25 23:33 UTC",
+ "empreinte_sha256_hypotheses_py": "46098e214d6dafb115f6b3bff74628a564a22dc921f811da8408df2ef58cb5f3",
+ "evaluation_sur_B": "python3 scripts/hypotheses.py /chemin/vers/donnees_B (mêmes formats de fichiers que donnees/)",
+ "decoupage_interne": "découverte sur S001-S035 (A1), contrôle sur S036-S050 (A2) avant le gel",
+ "hypotheses": [
+  {
+   "id": "H01",
+   "titre": "Horloge de 60 pas : l'activité saute au pas ≡ 0 (mod 60)",
+   "declencheur": "Au pas t tel que pas mod 60 = 59 (colonne pas seule). L'occurrence compte si la ligne suivante du segment porte le pas t+1.",
+   "prediction": "activite(t+1) > activite(t).",
+   "fenetre": "de +1 à +1 pas",
+   "mesure": "Part des occurrences où activite(t+1) > activite(t), toutes occurrences de B confondues.",
+   "critere_de_reussite": "taux ≥ 0.75",
+   "resultat_dans_A": {
+    "occurrences": 1032,
+    "segments": 50,
+    "reussites": 936,
+    "taux_ou_ecart": 0.907,
+    "reference_generale": "0.4152 : pas ordinaires (pas mod 5 != 4) : P(activité du pas suivant > activité du pas)",
+    "exemples": "S001 pas 59, S001 pas 119, S001 pas 179, S001 pas 239, S001 pas 299"
+   },
+   "resultat_A1": {
+    "occurrences": 720,
+    "segments": 35,
+    "reussites": 653,
+    "taux_ou_ecart": 0.9069,
+    "taux_observe": 0.9069,
+    "reference": 0.4151,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 312,
+    "segments": 15,
+    "reussites": 283,
+    "taux_ou_ecart": 0.9071,
+    "taux_observe": 0.9071,
+    "reference": 0.4156,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h01) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H02",
+   "titre": "Horloge de 60 pas : l'amplitude saute au pas ≡ 0 (mod 60)",
+   "declencheur": "Même déclencheur que H01 : pas mod 60 = 59 et ligne suivante au pas t+1.",
+   "prediction": "(max − min)(t+1) > (max − min)(t).",
+   "fenetre": "de +1 à +1 pas",
+   "mesure": "Part des occurrences où l'amplitude du pas suivant dépasse celle du pas t.",
+   "critere_de_reussite": "taux ≥ 0.70",
+   "resultat_dans_A": {
+    "occurrences": 1032,
+    "segments": 50,
+    "reussites": 850,
+    "taux_ou_ecart": 0.8236,
+    "reference_generale": "0.4647 : ",
+    "exemples": "S001 pas 59, S001 pas 119, S001 pas 179, S001 pas 239, S001 pas 299"
+   },
+   "resultat_A1": {
+    "occurrences": 720,
+    "segments": 35,
+    "reussites": 602,
+    "taux_ou_ecart": 0.8361,
+    "taux_observe": 0.8361,
+    "reference": 0.4651,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 312,
+    "segments": 15,
+    "reussites": 248,
+    "taux_ou_ecart": 0.7949,
+    "taux_observe": 0.7949,
+    "reference": 0.4638,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h02) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H03",
+   "titre": "Demi-horloge : l'activité saute au pas ≡ 30 (mod 60)",
+   "declencheur": "Au pas t tel que pas mod 60 = 29, et ligne suivante au pas t+1.",
+   "prediction": "activite(t+1) > activite(t).",
+   "fenetre": "de +1 à +1 pas",
+   "mesure": "Part des occurrences où activite(t+1) > activite(t).",
+   "critere_de_reussite": "taux ≥ 0.65",
+   "resultat_dans_A": {
+    "occurrences": 1122,
+    "segments": 50,
+    "reussites": 863,
+    "taux_ou_ecart": 0.7692,
+    "reference_generale": "0.4152 : ",
+    "exemples": "S001 pas 29, S001 pas 89, S001 pas 149, S001 pas 209, S001 pas 269"
+   },
+   "resultat_A1": {
+    "occurrences": 783,
+    "segments": 35,
+    "reussites": 615,
+    "taux_ou_ecart": 0.7854,
+    "taux_observe": 0.7854,
+    "reference": 0.4151,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 339,
+    "segments": 15,
+    "reussites": 248,
+    "taux_ou_ecart": 0.7316,
+    "taux_observe": 0.7316,
+    "reference": 0.4156,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h03) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H04",
+   "titre": "Les chocs d'amplitude s'auto-excitent",
+   "declencheur": "a_n(t) ≥ 4, avec a_n(t) = [(max − min)/fin](t) divisé par la médiane de la même quantité sur les 60 lignes précédentes du segment (au moins 30 lignes disponibles).",
+   "prediction": "Au moins une autre ligne de ]t, t+10] a aussi a_n ≥ 4 (chaque ligne avec sa propre médiane des 60 précédentes).",
+   "fenetre": "de +1 à +10 pas (lignes du même segment ; occurrence comptée si la ligne t+10 existe)",
+   "mesure": "Part des occurrences suivies d'un nouveau choc dans la fenêtre.",
+   "critere_de_reussite": "taux ≥ 0.25",
+   "resultat_dans_A": {
+    "occurrences": 294,
+    "segments": 48,
+    "reussites": 116,
+    "taux_ou_ecart": 0.3946,
+    "reference_generale": "0.0513 : P(choc dans les 10 pas) pour tous les pas de la même tranche de 60 pas",
+    "exemples": "S001 pas 60, S001 pas 63, S001 pas 64, S001 pas 690, S002 pas 60"
+   },
+   "resultat_A1": {
+    "occurrences": 213,
+    "segments": 35,
+    "reussites": 87,
+    "taux_ou_ecart": 0.4085,
+    "taux_observe": 0.4085,
+    "reference": 0.049,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 81,
+    "segments": 13,
+    "reussites": 29,
+    "taux_ou_ecart": 0.358,
+    "taux_observe": 0.358,
+    "reference": 0.068,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h04) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H05",
+   "titre": "Un pic d'activité annonce un nouvel extrême",
+   "declencheur": "act_n(t) ≥ 3, avec act_n(t) = activite(t) / médiane de activite sur les 60 lignes précédentes du segment (au moins 30).",
+   "prediction": "Une ligne de ]t, t+10] figure dans le journal des extrêmes (nouveau MAX ou nouveau MIN du segment).",
+   "fenetre": "de +1 à +10 pas (occurrence comptée si la ligne t+10 existe)",
+   "mesure": "Part des occurrences suivies d'au moins un extrême dans la fenêtre.",
+   "critere_de_reussite": "taux ≥ 0.30",
+   "resultat_dans_A": {
+    "occurrences": 963,
+    "segments": 50,
+    "reussites": 411,
+    "taux_ou_ecart": 0.4268,
+    "reference_generale": "0.1822 : P(extrême dans les 10 pas) pour tous les pas de la même tranche de 60 pas",
+    "exemples": "S001 pas 60, S001 pas 61, S001 pas 62, S001 pas 63, S001 pas 64"
+   },
+   "resultat_A1": {
+    "occurrences": 665,
+    "segments": 35,
+    "reussites": 258,
+    "taux_ou_ecart": 0.388,
+    "taux_observe": 0.388,
+    "reference": 0.1645,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 298,
+    "segments": 15,
+    "reussites": 153,
+    "taux_ou_ecart": 0.5134,
+    "taux_observe": 0.5134,
+    "reference": 0.2281,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h05) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H06",
+   "titre": "Sept pas dans le même sens ancrent le prix du même côté d'alpha",
+   "declencheur": "symbole(t) = 0 (les 7 derniers pas vont tous dans le même sens), avec t ≥ 7e ligne du segment.",
+   "prediction": "alpha_run ne change pas de signe sur ]t, t+9].",
+   "fenetre": "de +1 à +9 pas",
+   "mesure": "Taux observé moins taux attendu. Attendu = moyenne, sur les occurrences, du taux de « pas de bascule en 9 pas » de toutes les lignes (7e ligne et plus) de même décile de z_alpha = (fin − alpha_niv)/(alpha_env_haut − alpha_niv) et de même classe de |alpha_run| (1, 2, 3, 4-5, 6-9, 10-19, 20+), déciles calculés sur le jeu évalué.",
+   "critere_de_reussite": "écart ≥ +0.05 (5 points)",
+   "resultat_dans_A": {
+    "occurrences": 835,
+    "segments": 50,
+    "reussites": 670,
+    "taux_ou_ecart": 0.1277,
+    "reference_generale": "0.6747 : même décile de z_alpha et même classe de run",
+    "exemples": "S001 pas 137, S001 pas 345, S001 pas 971, S001 pas 1215, S001 pas 1216"
+   },
+   "resultat_A1": {
+    "occurrences": 554,
+    "segments": 35,
+    "reussites": 440,
+    "taux_ou_ecart": 0.1323,
+    "taux_observe": 0.7942,
+    "reference": 0.662,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 281,
+    "segments": 15,
+    "reussites": 230,
+    "taux_ou_ecart": 0.116,
+    "taux_observe": 0.8185,
+    "reference": 0.7025,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h06) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H07",
+   "titre": "Une bascule fraîche est fragile",
+   "declencheur": "Pour chacun des 5 capteurs : |run(t)| = 1 (le capteur vient de changer de côté), t n'étant pas la première ligne du segment.",
+   "prediction": "Le capteur rechange de côté dès la ligne suivante : signe(run(t+1)) ≠ signe(run(t)).",
+   "fenetre": "de +1 à +1 pas",
+   "mesure": "Taux observé (5 capteurs réunis) moins taux attendu. Attendu : pour le même capteur, taux de changement au pas suivant des lignes avec |run| > 1 de même vingtile de |z| (z du capteur).",
+   "critere_de_reussite": "écart ≥ +0.02 (2 points)",
+   "resultat_dans_A": {
+    "occurrences": 19280,
+    "segments": 50,
+    "reussites": 5526,
+    "taux_ou_ecart": 0.0456,
+    "reference_generale": "0.2410 : runs de plus d'un pas, même vingtile de |z| du capteur",
+    "exemples": "S001 pas 31, S001 pas 33, S001 pas 38, S001 pas 62, S001 pas 63"
+   },
+   "resultat_A1": {
+    "occurrences": 13773,
+    "segments": 35,
+    "reussites": 4009,
+    "taux_ou_ecart": 0.0492,
+    "taux_observe": 0.2911,
+    "reference": 0.2419,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 5507,
+    "segments": 15,
+    "reussites": 1517,
+    "taux_ou_ecart": 0.0363,
+    "taux_observe": 0.2755,
+    "reference": 0.2391,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h07) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H08",
+   "titre": "Cascade : le capteur plus lent suit la bascule du plus rapide",
+   "declencheur": "Paires (alpha→epsilon, epsilon→gamma, gamma→beta, beta→delta) : |run(c1)| = 1 au pas t et le nouveau côté de c1 est opposé au côté actuel de c2.",
+   "prediction": "c2 change de côté dans ]t, t+N(c1)], N = 27 (alpha), 54 (epsilon), 108 (gamma), 162 (beta).",
+   "fenetre": "de +1 à +N(c1) pas",
+   "mesure": "Taux observé (4 paires réunies) moins taux attendu. Attendu : taux de bascule de c2 dans la même fenêtre, pour toutes les lignes de même décile de |z_c2| et de même côté de c2. z = (écart moyen)/(écart-type de la différence) × racine(n).",
+   "critere_de_reussite": "écart ≥ +0.01 et z ≥ 2",
+   "resultat_dans_A": {
+    "occurrences": 7418,
+    "segments": 50,
+    "reussites": 6195,
+    "taux_ou_ecart": 0.0265,
+    "reference_generale": "0.8086 : tous les pas, même décile de |z_c2| et même côté de c2",
+    "exemples": "S001 pas 31, S001 pas 38, S001 pas 62, S001 pas 73, S001 pas 76"
+   },
+   "resultat_A1": {
+    "occurrences": 5292,
+    "segments": 35,
+    "reussites": 4440,
+    "taux_ou_ecart": 0.0234,
+    "taux_observe": 0.839,
+    "reference": 0.8156,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 2126,
+    "segments": 15,
+    "reussites": 1755,
+    "taux_ou_ecart": 0.0386,
+    "taux_observe": 0.8255,
+    "reference": 0.7869,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h08) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H09",
+   "titre": "Après la pause, l'ouverture décroche",
+   "declencheur": "Ligne t dont le pas dépasse de plus de 1 celui de la ligne précédente du segment (pause).",
+   "prediction": "|ouv(t) / fin(t−1) − 1| > 0,0024 (99e centile des pas ordinaires de A).",
+   "fenetre": "au pas t (première ligne après la pause)",
+   "mesure": "Part des pauses dont l'écart dépasse 0,24 %.",
+   "critere_de_reussite": "taux ≥ 0.50",
+   "resultat_dans_A": {
+    "occurrences": 40,
+    "segments": 40,
+    "reussites": 32,
+    "taux_ou_ecart": 0.8,
+    "reference_generale": "0.0103 : part des pas ordinaires dont l'écart dépasse 0,24 %",
+    "exemples": "S001 pas 1320, S002 pas 1320, S003 pas 1320, S004 pas 1320, S006 pas 1320"
+   },
+   "resultat_A1": {
+    "occurrences": 28,
+    "segments": 28,
+    "reussites": 25,
+    "taux_ou_ecart": 0.8929,
+    "taux_observe": 0.8929,
+    "reference": 0.0147,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 12,
+    "segments": 12,
+    "reussites": 7,
+    "taux_ou_ecart": 0.5833,
+    "taux_observe": 0.5833,
+    "reference": 0.0002,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h09) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H10",
+   "titre": "Cycle de 5 segments",
+   "declencheur": "Début de chaque segment ; seul son numéro est utilisé.",
+   "prediction": "Numéro ≡ 0 (mod 5) : le segment s'arrête avant le pas 1439. Sinon : il atteint le pas 1439 et ne contient aucun pas de 1258 à 1319 (pause).",
+   "fenetre": "le segment entier",
+   "mesure": "Part des segments conformes à la règle.",
+   "critere_de_reussite": "taux ≥ 0.90",
+   "resultat_dans_A": {
+    "occurrences": 50,
+    "segments": 50,
+    "reussites": 50,
+    "taux_ou_ecart": 1.0,
+    "reference_generale": "règle de calendrier, pas de référence aléatoire",
+    "exemples": "S001 pas 0, S002 pas 0, S003 pas 0, S004 pas 0, S005 pas 0"
+   },
+   "resultat_A1": {
+    "occurrences": 35,
+    "segments": 35,
+    "reussites": 35,
+    "taux_ou_ecart": 1.0,
+    "taux_observe": 1.0,
+    "reference": null,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 15,
+    "segments": 15,
+    "reussites": 15,
+    "taux_ou_ecart": 1.0,
+    "taux_observe": 1.0,
+    "reference": null,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h10) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H11",
+   "titre": "Heure de pointe : les pas 780 à 839",
+   "declencheur": "Pas 780 atteint dans le segment.",
+   "prediction": "La médiane de activite sur les pas 780 à 839 vaut au moins 1,5 fois la médiane de activite du segment entier.",
+   "fenetre": "pas 780 à 839 (médiane du segment mesurée à la fin du segment)",
+   "mesure": "Part des segments où le rapport ≥ 1,5.",
+   "critere_de_reussite": "taux ≥ 0.70",
+   "resultat_dans_A": {
+    "occurrences": 50,
+    "segments": 50,
+    "reussites": 49,
+    "taux_ou_ecart": 0.98,
+    "reference_generale": "0.1688 : part des autres tranches de 60 pas dont la médiane dépasse 1,5 × la médiane du segment",
+    "exemples": "S001 pas 780, S002 pas 780, S003 pas 780, S004 pas 780, S005 pas 780"
+   },
+   "resultat_A1": {
+    "occurrences": 35,
+    "segments": 35,
+    "reussites": 34,
+    "taux_ou_ecart": 0.9714,
+    "taux_observe": 0.9714,
+    "reference": 0.1698,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 15,
+    "segments": 15,
+    "reussites": 15,
+    "taux_ou_ecart": 1.0,
+    "taux_observe": 1.0,
+    "reference": 0.1667,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h11) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H12",
+   "titre": "Moins d'extrêmes qu'un chemin aux pas mélangés",
+   "declencheur": "Chaque segment.",
+   "prediction": "Le nombre de nouveaux extrêmes (MAX + MIN, règle du journal) est inférieur à la moyenne de 50 surrogats : pas mélangés au hasard (max, min, fin rapportés à la fin précédente), chemin reconstruit depuis la première ligne ; graine 20260925.",
+   "fenetre": "le segment entier",
+   "mesure": "Part des segments où observé < moyenne des surrogats.",
+   "critere_de_reussite": "taux ≥ 0.75",
+   "resultat_dans_A": {
+    "occurrences": 50,
+    "segments": 50,
+    "reussites": 45,
+    "taux_ou_ecart": 0.9,
+    "reference_generale": "0.5000 : sans structure, un segment a autant de chances d'être au-dessus qu'au-dessous",
+    "exemples": "S001 pas 0, S002 pas 0, S003 pas 0, S004 pas 0, S005 pas 0"
+   },
+   "resultat_A1": {
+    "occurrences": 35,
+    "segments": 35,
+    "reussites": 31,
+    "taux_ou_ecart": 0.8857,
+    "taux_observe": 0.8857,
+    "reference": 0.5,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 15,
+    "segments": 15,
+    "reussites": 14,
+    "taux_ou_ecart": 0.9333,
+    "taux_observe": 0.9333,
+    "reference": 0.5,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h12) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H13",
+   "titre": "La volatilité d'un segment annonce celle du suivant",
+   "declencheur": "Début du segment k+1 ; la médiane de (max − min)/fin du segment k est connue.",
+   "prediction": "La médiane de (max − min)/fin du segment k+1 est comprise entre 1/1,5 et 1,5 fois celle du segment k.",
+   "fenetre": "le segment k+1 entier",
+   "mesure": "Part des paires de segments consécutifs conformes.",
+   "critere_de_reussite": "taux ≥ 0.70",
+   "resultat_dans_A": {
+    "occurrences": 49,
+    "segments": 49,
+    "reussites": 41,
+    "taux_ou_ecart": 0.8367,
+    "reference_generale": "0.3580 : paires de segments non voisins",
+    "exemples": "S002 pas 0, S003 pas 0, S004 pas 0, S005 pas 0, S006 pas 0"
+   },
+   "resultat_A1": {
+    "occurrences": 34,
+    "segments": 34,
+    "reussites": 26,
+    "taux_ou_ecart": 0.7647,
+    "taux_observe": 0.7647,
+    "reference": 0.4599,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 14,
+    "segments": 14,
+    "reussites": 14,
+    "taux_ou_ecart": 1.0,
+    "taux_observe": 1.0,
+    "reference": 0.4945,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h13) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H14",
+   "titre": "L'activité précède l'amplitude (Granger à sens unique)",
+   "declencheur": "Chaque segment.",
+   "prediction": "Test de Granger (VAR d'ordre 5 sur log activite et log[(max − min)/fin], chacune moins sa moyenne mobile de 60 lignes) : activité → amplitude significatif à 1 %, amplitude → activité non significatif.",
+   "fenetre": "le segment entier",
+   "mesure": "Part des segments où activité → amplitude a p < 0,01 ; part des segments où amplitude → activité a p < 0,01.",
+   "critere_de_reussite": "première part ≥ 0.80 et seconde part ≤ 0.30",
+   "resultat_dans_A": {
+    "occurrences": 50,
+    "segments": 50,
+    "reussites": 50,
+    "taux_ou_ecart": 1.0,
+    "reference_generale": "0.0200 : sens inverse (amplitude -> activité)",
+    "exemples": "S001 pas 0, S002 pas 0, S003 pas 0, S004 pas 0, S005 pas 0"
+   },
+   "resultat_A1": {
+    "occurrences": 35,
+    "segments": 35,
+    "reussites": 35,
+    "taux_ou_ecart": 1.0,
+    "taux_observe": 1.0,
+    "reference": 0.0286,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 15,
+    "segments": 15,
+    "reussites": 15,
+    "taux_ou_ecart": 1.0,
+    "taux_observe": 1.0,
+    "reference": 0.0,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h14) ; appelé par scripts/10_gel.py"
+  },
+  {
+   "id": "H15",
+   "titre": "Contrôle : les familles qui appellent ne font pas basculer le capteur appelé",
+   "declencheur": "famille(t) ∈ {F06, F33, F11, F20, F26} (appels.json), avec t ≥ 7e ligne du segment.",
+   "prediction": "Le capteur appelé change de côté dans ]t, t+27] ni plus ni moins souvent que la référence appariée.",
+   "fenetre": "de +1 à +27 pas",
+   "mesure": "Taux observé (5 appels réunis) moins taux attendu. Attendu : pour le capteur appelé, lignes (7e et plus) de même décile de z et de même classe de |run|.",
+   "critere_de_reussite": "|écart| ≤ 0.03 (hypothèse de contrôle négatif)",
+   "resultat_dans_A": {
+    "occurrences": 9632,
+    "segments": 50,
+    "reussites": 4956,
+    "taux_ou_ecart": 0.0055,
+    "reference_generale": "0.5091 : même décile de z du capteur appelé et même classe de run",
+    "exemples": "S001 pas 142, S001 pas 144, S001 pas 198, S001 pas 241, S001 pas 329"
+   },
+   "resultat_A1": {
+    "occurrences": 6715,
+    "segments": 35,
+    "reussites": 3492,
+    "taux_ou_ecart": 0.0072,
+    "taux_observe": 0.52,
+    "reference": 0.5128,
+    "critere_atteint": true
+   },
+   "resultat_A2": {
+    "occurrences": 2917,
+    "segments": 15,
+    "reussites": 1464,
+    "taux_ou_ecart": -0.0011,
+    "taux_observe": 0.5019,
+    "reference": 0.503,
+    "critere_atteint": true
+   },
+   "script": "scripts/hypotheses.py (fonction h15) ; appelé par scripts/10_gel.py"
+  }
+ ]
+}
