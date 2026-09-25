@@ -52,3 +52,11 @@
 - Spectre de log(activité) : pics nets aux périodes 5 (×10,6 sur le fond), 2,5, 15 (×4,6), 10 et 30 (×3,1). La fondamentale 60 est noyée dans le bruit rouge ; elle apparaît par ses harmoniques et dans le profil modulo 60.
 - Régimes : la volatilité médiane d'un segment prédit celle du suivant (ρ = 0,84 sur 49 paires). Pour l'activité, ρ = 0,30.
 - Topologie (persistance 0-dim des creux et sommets) : rapport observé / mélangé de 0,97 à 1,02 pour tous les seuils. La forme des oscillations est celle du hasard de mêmes pas.
+
+## Séance 4 : gel et relecture (10_gel.py, 11a_figures_rapport.py)
+
+- Gel de 15 hypothèses le 2026-09-25 à 23:33 UTC. Les 15 atteignent leur critère en A1 (S001-S035) et en A2 (S036-S050). H09 (pause) est la plus fragile : 89 % en A1, 58 % en A2, sur 28 et 12 pauses. Son critère de B est fixé à 50 %, contre 1 % de référence.
+- En relisant la figure des chocs : un choc au pas t est suivi d'un autre choc exactement 1 pas après dans 22,6 % des cas (0,8 % de référence). L'excitation remonte vers k = 25-30 : écho de la demi-horloge (pas ≡ 0 puis ≡ 30).
+- En relisant la figure des extrêmes : par rapport au surrogat, ils sont en excès vers les pas 780-900 (heure de pointe) et en déficit ailleurs. C'est cohérent avec l'annonce des extrêmes par l'activité (H05).
+- Risque de fin des runs : pour alpha, il passe de 28 % à 1 pas à 17 % à 2 pas, 9 % à 5 pas et 6 % à 20 pas. Un run qui survit se consolide.
+- Carte de chaleur segments × tranches : la tranche 13 (pas 780-839) est chaude dans presque tous les segments (rapport médian 2,23).

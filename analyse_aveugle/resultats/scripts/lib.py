@@ -157,7 +157,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 plt.rcParams.update({
     "figure.facecolor": "white", "axes.facecolor": "white", "savefig.facecolor": "white",
     "font.size": 9, "axes.titlesize": 10, "axes.spines.top": False, "axes.spines.right": False,
-    "svg.fonttype": "none", "axes.grid": True, "grid.color": "#e6e6e6", "grid.linewidth": 0.6,
+    "svg.fonttype": "none", "svg.hashsalt": "kayolar-aveugle", "axes.grid": True, "grid.color": "#e6e6e6", "grid.linewidth": 0.6,
 })
 COUL = {"alpha": "#2a78d6", "beta": "#d67a2a", "gamma": "#2aa35a", "delta": "#b0369c", "epsilon": "#7a6a2a",
         "ref": "#9a9a9a", "fin": "#222222"}
